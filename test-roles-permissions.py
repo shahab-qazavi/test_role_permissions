@@ -1,17 +1,16 @@
 import sys
 import os
 sys.path.append(os.getcwd())
-# print(sys.path)
+
 from xlrd import open_workbook
 from general_functions_roles import init_database_without_user, get_admin_token, get_user_token, get_complex_token,\
     get_operator_token, get_guest_token
 import requests
 from public_role import consts
-print('injury')
+
 wb = open_workbook('permissions.xlsx')
-print('onjory')
+
 init_database_without_user()
-print('init')
 
 # Variables
 html = '''<html lang="en">
@@ -151,7 +150,7 @@ for s in wb.sheets():
                 pass
             col_value.append(value)
         values.append(col_value)
-print('alaki')
+
 for j in values:
     print(j)
     if j[0] == 'admin':
@@ -310,11 +309,7 @@ for j in values:
                         color_delete,
                         delete_status,
                         delete_sign)
-        # print(i)
-        print('end for')
-print(rows)
-print('end')
+
 file = open('role-permissions.html', 'wb',)
 file.write((html % rows).encode('utf-8'))
 file.close()
-print('end of all')
