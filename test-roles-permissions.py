@@ -1,4 +1,4 @@
-__author__='Shahab Qazavi'
+__author__ = 'Shahab Qazavi'
 
 import sys
 import os
