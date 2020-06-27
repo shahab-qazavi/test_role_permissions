@@ -1,9 +1,13 @@
 __author__='Shahab Qazavi'
 
+import sys
+import os
+sys.path.append(os.getcwd())
 
 from openpyxl import Workbook
-from publics import db
-col_permissions = db()['users_roles']
+from pymongo import MongoClient
+db = MongoClient['roles-permissions']
+col_permissions = db['users_roles']
 wb = Workbook()
 ws = wb.active
 ws.append(['role', 'module', 'get','post','put','delete'])
